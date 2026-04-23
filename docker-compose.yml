@@ -1,0 +1,55 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      TZ: America/Mexico_City
+      CI_ENVIRONMENT: development
+    command: >
+      sh -c "mkdir -p writable/session writable/cache writable/logs
+      && chown -R www-data:www-data writable
+      && chmod -R 775 writable
+      && apache2-foreground"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      TZ: America/Mexico_City
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: encuesta_restaurante
+      MARIADB_USER: encuesta_user
+      MARIADB_PASSWORD: encuesta_pass
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
