@@ -56,6 +56,10 @@ Credenciales iniciales:
 - Guia de despliegue local: `docs/INSTALACION.md`
 - Guia con Docker Compose (PHP 8.2): `docs/DOCKER.md`
 
+Nota XAMPP:
+- El proyecto incluye `.htaccess` en la raiz para redirigir a `public/` y proteger rutas sensibles.
+- Usa `app.baseURL` sin `/public` cuando despliegues por raiz de proyecto.
+
 ## Notas de repositorio
 - El archivo `.env` no se versiona.
 - Usa `.env.example` como base para nuevos entornos.

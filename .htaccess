@@ -1,0 +1,29 @@
+# ----------------------------------------------------------------------
+# Root security and routing rules for CodeIgniter 4
+# ----------------------------------------------------------------------
+
+# Disable directory listing
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct access to sensitive folders
+    RewriteRule ^(?:app|system|writable|tests|docs|docker|vendor|\.git)(?:/|$) - [F,L,NC]
+
+    # Block sensitive files
+    RewriteRule ^(?:env|\.env(?:\..*)?|composer\.(?:json|lock)|phpunit\.xml(?:\.dist)?|preload\.php|spark)$ - [F,L,NC]
+
+    # Block Markdown files anywhere (README, docs, notes, etc.)
+    RewriteRule \.md$ - [F,L,NC]
+
+    # Avoid rewrite loop if request is already under /public
+    RewriteCond %{REQUEST_URI} !/public/ [NC]
+
+    # Route all requests through /public
+    RewriteRule ^(.*)$ public/$1 [L,QSA]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 403 "mod_rewrite is required for this application."
+</IfModule>
