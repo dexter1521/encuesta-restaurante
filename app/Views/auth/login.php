@@ -7,6 +7,18 @@
     <link href="<?= base_url('assets/sb-admin/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
     <link href="<?= base_url('assets/sb-admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/brand/brand.css') ?>" rel="stylesheet">
+    <style>
+        .brand-login-logo {
+            max-width: 220px;
+            width: 100%;
+            border-radius: 10px;
+            background: #fff;
+            padding: 6px;
+            border: 1px solid #e6d0ec;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body class="bg-gradient-primary">
 <div class="container">
@@ -16,6 +28,7 @@
                 <div class="card-body p-0">
                     <div class="p-5">
                         <div class="text-center">
+                            <img src="<?= base_url('assets/brand/logo-santa-monica-horizontal.jpeg') ?>" alt="Santa Monica" class="brand-login-logo">
                             <h1 class="h4 text-gray-900 mb-4">Panel de Administracion</h1>
                         </div>
                         <?php if (session('success')): ?>

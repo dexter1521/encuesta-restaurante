@@ -1,0 +1,70 @@
+:root {
+    --sm-purple: #6f2a7f;
+    --sm-purple-dark: #4a1458;
+    --sm-lilac: #d89adf;
+    --sm-lilac-soft: #f4e0f7;
+}
+
+.sidebar.bg-gradient-primary {
+    background: linear-gradient(180deg, var(--sm-purple) 0%, var(--sm-purple-dark) 100%) !important;
+    background-color: var(--sm-purple) !important;
+}
+
+.sidebar .sidebar-brand {
+    height: 5.2rem;
+    padding: 0.75rem 1rem;
+}
+
+.sidebar-brand-logo {
+    max-width: 9.4rem;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #fff;
+    padding: 4px;
+}
+
+.btn-primary {
+    background-color: var(--sm-purple);
+    border-color: var(--sm-purple);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--sm-purple-dark) !important;
+    border-color: var(--sm-purple-dark) !important;
+}
+
+.btn-outline-primary {
+    color: var(--sm-purple);
+    border-color: var(--sm-purple);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--sm-purple);
+    border-color: var(--sm-purple);
+}
+
+.text-primary {
+    color: var(--sm-purple) !important;
+}
+
+.border-left-primary {
+    border-left-color: var(--sm-purple) !important;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .nav-link,
+.text-gray-700 {
+    color: #4a3552 !important;
+}
+
+.alert-success {
+    background-color: #f2e8f5;
+    border-color: #e0c8e8;
+    color: #4a1458;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(130deg, var(--sm-purple) 0%, var(--sm-lilac) 100%) !important;
+}

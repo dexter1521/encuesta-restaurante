@@ -7,13 +7,13 @@
     <link href="<?= base_url('assets/sb-admin/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
     <link href="<?= base_url('assets/sb-admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/brand/brand.css') ?>" rel="stylesheet">
 </head>
 <body id="page-top">
 <div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= site_url('/admin/dashboard') ?>">
-            <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-poll"></i></div>
-            <div class="sidebar-brand-text mx-3">Encuestas</div>
+            <img src="<?= base_url('assets/brand/logo-santa-monica-horizontal.jpeg') ?>" alt="Santa Monica" class="sidebar-brand-logo">
         </a>
         <hr class="sidebar-divider my-0">
         <li class="nav-item"><a class="nav-link" href="<?= site_url('/admin/dashboard') ?>"><i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span></a></li>
@@ -27,6 +27,9 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" type="button" aria-label="Abrir menu">
+                    <i class="fa fa-bars"></i>
+                </button>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-3 d-flex align-items-center text-gray-700">Hola, <?= esc((string) session('admin_name')) ?></li>
                     <li class="nav-item"><a class="btn btn-sm btn-outline-danger" href="<?= site_url('/admin/logout') ?>">Salir</a></li>

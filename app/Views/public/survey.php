@@ -6,19 +6,19 @@
     <title><?= esc($title ?? 'Encuesta') ?></title>
     <style>
         :root {
-            --bg-1: #f7f4ef;
-            --bg-2: #efe8db;
-            --ink: #1f2937;
-            --muted: #6b7280;
-            --line: #d6d3d1;
-            --card: #fffdf9;
-            --brand: #0f766e;
-            --brand-dark: #115e59;
-            --accent: #b45309;
+            --bg-1: #f6e4fa;
+            --bg-2: #e4b8eb;
+            --ink: #2d1535;
+            --muted: #6f4b7a;
+            --line: #d9b7e2;
+            --card: #fffafe;
+            --brand: #6f2a7f;
+            --brand-dark: #4a1458;
+            --accent: #8d3fa0;
             --danger-bg: #fef2f2;
             --danger-ink: #991b1b;
-            --ok-bg: #ecfdf5;
-            --ok-ink: #065f46;
+            --ok-bg: #f2e8f5;
+            --ok-ink: #4a1458;
             --radius-lg: 18px;
             --radius-md: 12px;
             --shadow-soft: 0 18px 40px rgba(31, 41, 55, 0.09);
@@ -33,8 +33,8 @@
             color: var(--ink);
             font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
             background:
-                radial-gradient(circle at 15% 12%, rgba(15, 118, 110, 0.16) 0, transparent 28%),
-                radial-gradient(circle at 88% 8%, rgba(180, 83, 9, 0.15) 0, transparent 24%),
+                radial-gradient(circle at 15% 12%, rgba(111, 42, 127, 0.22) 0, transparent 28%),
+                radial-gradient(circle at 88% 8%, rgba(216, 154, 223, 0.4) 0, transparent 24%),
                 linear-gradient(145deg, var(--bg-1), var(--bg-2));
             min-height: 100vh;
         }
@@ -45,7 +45,7 @@
         }
 
         .panel {
-            background: linear-gradient(180deg, #fffefc 0%, #fff9f0 100%);
+            background: linear-gradient(180deg, #fffeff 0%, #fff5ff 100%);
             border: 1px solid rgba(15, 23, 42, 0.08);
             border-radius: 24px;
             box-shadow: var(--shadow-soft);
@@ -54,8 +54,19 @@
 
         .panel-head {
             padding: 26px 24px 18px;
-            background: linear-gradient(102deg, rgba(15, 118, 110, 0.12), rgba(180, 83, 9, 0.11));
+            background: linear-gradient(102deg, rgba(111, 42, 127, 0.17), rgba(216, 154, 223, 0.23));
             border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .brand-logo {
+            display: block;
+            max-width: 260px;
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #e6d0ec;
+            background: #fff;
+            padding: 5px;
+            margin-bottom: 10px;
         }
 
         .eyebrow {
@@ -164,8 +175,8 @@
         .field select:focus,
         .field textarea:focus {
             outline: none;
-            border-color: rgba(15, 118, 110, 0.85);
-            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.15);
+            border-color: rgba(111, 42, 127, 0.85);
+            box-shadow: 0 0 0 4px rgba(111, 42, 127, 0.15);
         }
 
         .question-block {
@@ -213,10 +224,10 @@
         }
 
         .rating-group input[type="radio"]:checked + .rating-option {
-            background: linear-gradient(180deg, #14b8a6, #0f766e);
-            border-color: #0f766e;
+            background: linear-gradient(180deg, #8f43a4, #6f2a7f);
+            border-color: #6f2a7f;
             color: #fff;
-            box-shadow: 0 9px 16px rgba(15, 118, 110, 0.3);
+            box-shadow: 0 9px 16px rgba(111, 42, 127, 0.32);
         }
 
         .rating-help {
@@ -241,14 +252,14 @@
             font-weight: 800;
             color: #fff;
             background: linear-gradient(90deg, var(--brand), var(--brand-dark));
-            box-shadow: 0 12px 24px rgba(15, 118, 110, 0.28);
+            box-shadow: 0 12px 24px rgba(111, 42, 127, 0.3);
             cursor: pointer;
             transition: transform .2s ease, box-shadow .2s ease;
         }
 
         .submit-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 14px 26px rgba(15, 118, 110, 0.35);
+            box-shadow: 0 14px 26px rgba(111, 42, 127, 0.38);
         }
 
         @media (max-width: 900px) {
@@ -300,6 +311,7 @@
 <div class="container">
     <div class="panel">
         <div class="panel-head">
+            <img src="<?= base_url('assets/brand/logo-santa-monica-horizontal.jpeg') ?>" alt="Santa Monica" class="brand-logo">
             <p class="eyebrow">Restaurante | Calidad y Servicio</p>
             <h1>Encuesta de Satisfaccion</h1>
             <p class="subtitle">Tu opinion toma menos de 1 minuto y nos ayuda a mejorar tu experiencia.</p>
@@ -339,7 +351,7 @@
                     <div class="field span-4">
                         <label>Primera visita</label>
                         <select name="primera_visita" required>
-                            <option value="1" <?= old('primera_visita') === '1' ? 'selected' : '' ?>>Sí</option>
+                            <option value="1" <?= old('primera_visita') === '1' ? 'selected' : '' ?>>Si</option>
                             <option value="0" <?= old('primera_visita') === '0' ? 'selected' : '' ?>>No</option>
                         </select>
                     </div>
@@ -394,3 +406,4 @@
 </script>
 </body>
 </html>
+
